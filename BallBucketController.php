@@ -25,11 +25,10 @@ class BallBucketController extends Controller
         // Empty all buckets
         Bucket::all()->each->emptyBucket();
 
-        // Return a JSON response if you need it
         // return response()->json($bucket);
 
         // Return the view with any data you might need
-        return view('internal.crm.bucket&ball');
+        return view('internal.crm.add-bucket');
     }
 
 
@@ -41,7 +40,8 @@ class BallBucketController extends Controller
         // Empty all buckets
         Bucket::all()->each->emptyBucket();
 
-        return response()->json($ball);
+        //return response()->json($ball);
+        return view('internal.crm.add-ball');
 
     }
 
@@ -79,6 +79,8 @@ class BallBucketController extends Controller
                     break;
                 }
             }
+
+            return view('internal.crm.suggest-buckets');
         }
 
         // Create the result message
@@ -88,7 +90,8 @@ class BallBucketController extends Controller
             $resultMessage .= "{$bucket->balls->count()} {$ballName} Balls, ";
         }
 
-        return response()->json(['message' => $resultMessage]);
+        //return response()->json(['message' => $resultMessage]);
+        return view('internal.crm.result');
     }
 
 }
