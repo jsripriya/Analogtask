@@ -18,6 +18,7 @@ Route::group(['middleware' => ['auth:web','xss']], function () {
     Route::post('/add-bucket', [BallBucketController::class, 'addBucket']);
     Route::post('/add-ball', [BallBucketController::class, 'addBall']);
     Route::post('/suggest-buckets', [BallBucketController::class, 'suggestBuckets']);
+    Route::post('/result', [BallBucketController::class, 'result']);
 });
 
 
